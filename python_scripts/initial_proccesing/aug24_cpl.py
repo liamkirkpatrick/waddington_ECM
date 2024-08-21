@@ -22,15 +22,8 @@ path_to_data = '../../data/'
 path_to_raw = '/Users/Liam/Desktop/UW/ECM/raw_data/'
 metadata_file = 'metadata.csv'
 
-dates = ['2024-03-19','2024-03-20','2024-03-21','2024-03-22','2024-04-08',
-          '2024-04-09','2024-04-10','2024-04-11','2024-04-12','2024-04-15',
-          '2024-04-16','2024-04-17','2024-04-18','2024-04-19',"2024-07-09",
-          "2024-07-10",
-          "2024-07-11",
-          "2024-07-12",
-          "2024-07-15","2024-07-16","2024-07-17","2024-07-18","2024-07-19",'2024-07-22']
-
-#dates = [']
+# set of dates to read
+dates = ['2024-08-20']
 
 # set flags in file and corresponding header in master csv
 flag_dict = {'AC Collect Speed: ':'AC_col_sp',
@@ -91,12 +84,9 @@ for date in dates:
         txt_files.extend([os.path.join(folder_path, file) for file in os.listdir(folder_path) if file.endswith('.txt')])
 
 
-
 #%% Populate dataframe
 
 for f in txt_files:
-    
-    # open file
     
     
     # extract values from file
@@ -134,13 +124,9 @@ for f in txt_files:
     vals.append(parts[5]) # core
     section = parts[6]
     
-    if len(parts)==8:
-        vals.append(parts[6]) # section
-        vals.append(parts[7][:-4]) # face
-        
-    else:
-        vals.append(parts[6][:-4]) # section
-        vals.append('half')
+    vals.append(parts[6][:-4]) # section
+    vals.append('water_iso_cut')
+    
     vals.append(ACorDC)
     vals.append(header)
     vals.append(f)
