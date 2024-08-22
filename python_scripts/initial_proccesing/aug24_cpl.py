@@ -23,7 +23,7 @@ path_to_raw = '/Users/Liam/Desktop/UW/ECM/raw_data/'
 metadata_file = 'metadata.csv'
 
 # set of dates to read
-dates = ['2024-08-20']
+dates = ['2024-08-20','2024-08-21']
 
 # set flags in file and corresponding header in master csv
 flag_dict = {'AC Collect Speed: ':'AC_col_sp',
